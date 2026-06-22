@@ -1,4 +1,4 @@
-# FitKG Explorer
+# physio — FitKG Explorer
 
 Interactive fitness knowledge graph with RAG chat, body map, and KIMORE rehab pose demos.
 
