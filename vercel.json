@@ -18,8 +18,6 @@
   ],
   "rewrites": [
     { "source": "/", "destination": "/fitkg_graph_ui/index.html" },
-    { "source": "/fitkg_graph_ui", "destination": "/fitkg_graph_ui/index.html" },
-    { "source": "/api/kimore/demo", "destination": "/api/kimore_demo" },
-    { "source": "/api/kimore/feedback", "destination": "/api/kimore_feedback" }
+    { "source": "/fitkg_graph_ui", "destination": "/fitkg_graph_ui/index.html" }
   ]
 }
