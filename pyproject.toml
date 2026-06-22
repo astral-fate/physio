@@ -9,4 +9,7 @@ dependencies = [
 ]
 
 [tool.vercel]
-entrypoint = "app:app"
+entrypoint = "api.index:app"
+
+[tool.vercel.scripts]
+build = "python scripts/vercel_build.py"

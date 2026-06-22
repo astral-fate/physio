@@ -1,4 +1,4 @@
-"""Vercel entrypoint — single FastAPI app for all /api/* routes."""
+"""Vercel FastAPI entrypoint — all /api/* routes (api/index.py)."""
 from __future__ import annotations
 
 from typing import Any, Dict, List, Optional
@@ -30,8 +30,7 @@ class FeedbackRequest(BaseModel):
     keypoints: Optional[List[List[List[float]]]] = None
 
 
-@app.get("/api/health")
-def health() -> Dict[str, Any]:
+def _health_payload() -> Dict[str, Any]:
     from fitkg_rag import llm_configured, llm_provider, load_dotenv
 
     load_dotenv()
@@ -46,7 +45,14 @@ def health() -> Dict[str, Any]:
     }
 
 
+@app.get("/api/health")
+@app.get("/health")
+def health() -> Dict[str, Any]:
+    return _health_payload()
+
+
 @app.post("/api/chat")
+@app.post("/chat")
 def chat(body: ChatRequest) -> Dict[str, Any]:
     query = body.query.strip()
     if not query:
@@ -67,6 +73,7 @@ def chat(body: ChatRequest) -> Dict[str, Any]:
 
 
 @app.get("/api/muscles")
+@app.get("/muscles")
 def muscles(node_id: str = Query(..., description="FitKG node id")) -> Dict[str, Any]:
     try:
         from fitkg_body_map import regions_from_graph_node
@@ -78,6 +85,7 @@ def muscles(node_id: str = Query(..., description="FitKG node id")) -> Dict[str,
 
 
 @app.get("/api/kimore")
+@app.get("/kimore")
 def kimore_catalog() -> Dict[str, Any]:
     try:
         from fitkg_kimore_bridge import list_kimore_catalog
@@ -88,6 +96,7 @@ def kimore_catalog() -> Dict[str, Any]:
 
 
 @app.get("/api/kimore/demo")
+@app.get("/kimore/demo")
 def kimore_demo(
     class_id: Optional[str] = Query(None, alias="class"),
     class_id_alt: Optional[str] = Query(None, alias="class_id"),
@@ -127,6 +136,7 @@ def kimore_demo(
 
 
 @app.post("/api/kimore/feedback")
+@app.post("/kimore/feedback")
 def kimore_feedback(body: FeedbackRequest) -> Dict[str, Any]:
     exercise = (body.exercise_class or body.exercise or "").strip()
     if not exercise:

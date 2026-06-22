@@ -41,3 +41,6 @@ paper.txt
 terminals/
 agent-transcripts/
 *.log
+
+# Generated at Vercel build (source: fitkg_graph_ui/, outputs/fitkg_kg/)
+public/

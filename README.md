@@ -461,7 +461,8 @@ streamlit run fitkg_assistant.py
 
 ```
 physio/
-├── app.py                    # Vercel FastAPI entrypoint (all /api/* routes)
+├── api/index.py              # Vercel FastAPI entrypoint (all /api/* routes)
+├── scripts/vercel_build.py   # Copies UI + KG JSON → public/ at deploy
 ├── fitkg_api_common.py       # Shared API helpers
 ├── fitkg_graph_ui/           # Web application (HTML/JS)
 │   ├── index.html
