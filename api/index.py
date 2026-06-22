@@ -1,13 +1,40 @@
-"""Vercel FastAPI entrypoint — all /api/* routes (api/index.py)."""
+"""Vercel FastAPI entrypoint — API + static UI/KG files (api/index.py)."""
 from __future__ import annotations
 
+from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 from fitkg_api_common import ROOT, get_rag, node_payload
+
+UI_DIR = ROOT / "fitkg_graph_ui"
+KG_DIR = ROOT / "outputs" / "fitkg_kg"
+
+_MIME = {
+    ".html": "text/html; charset=utf-8",
+    ".js": "application/javascript; charset=utf-8",
+    ".css": "text/css; charset=utf-8",
+    ".json": "application/json; charset=utf-8",
+    ".svg": "image/svg+xml",
+}
+
+
+def _safe_file(base: Path, rel: str) -> Path:
+    path = (base / rel).resolve()
+    if not str(path).startswith(str(base.resolve())):
+        raise HTTPException(status_code=404, detail="Not Found")
+    if not path.is_file():
+        raise HTTPException(status_code=404, detail="Not Found")
+    return path
+
+
+def _file_response(path: Path) -> FileResponse:
+    media = _MIME.get(path.suffix.lower())
+    return FileResponse(path, media_type=media) if media else FileResponse(path)
 
 app = FastAPI(title="FitKG API", version="1.0.0")
 app.add_middleware(
@@ -158,3 +185,25 @@ def kimore_feedback(body: FeedbackRequest) -> Dict[str, Any]:
         raise
     except Exception as ex:
         raise HTTPException(status_code=500, detail=str(ex)) from ex
+
+
+# --- Static UI + KG data (Vercel FastAPI serves the whole site) ---
+
+@app.get("/")
+@app.get("/fitkg_graph_ui")
+@app.get("/fitkg_graph_ui/")
+def ui_home() -> FileResponse:
+    index = UI_DIR / "index.html"
+    if not index.is_file():
+        raise HTTPException(status_code=404, detail="UI not found")
+    return _file_response(index)
+
+
+@app.get("/fitkg_graph_ui/{rest:path}")
+def ui_asset(rest: str) -> FileResponse:
+    return _file_response(_safe_file(UI_DIR, rest))
+
+
+@app.get("/outputs/fitkg_kg/{rest:path}")
+def kg_asset(rest: str) -> FileResponse:
+    return _file_response(_safe_file(KG_DIR, rest))

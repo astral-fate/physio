@@ -15,9 +15,5 @@
         { "key": "Cache-Control", "value": "public, max-age=3600" }
       ]
     }
-  ],
-  "rewrites": [
-    { "source": "/", "destination": "/fitkg_graph_ui/index.html" },
-    { "source": "/fitkg_graph_ui", "destination": "/fitkg_graph_ui/index.html" }
   ]
 }
