@@ -1,7 +1,7 @@
 from http.server import BaseHTTPRequestHandler
 from urllib.parse import parse_qs, urlparse
 
-from api._common import get_rag, handle_options, node_payload, send_json
+from fitkg_api_common import get_rag, handle_options, node_payload, send_json
 
 
 class handler(BaseHTTPRequestHandler):

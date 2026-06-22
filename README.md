@@ -461,11 +461,14 @@ streamlit run fitkg_assistant.py
 
 ```
 physio/
-├── api/                      # Vercel serverless API routes
+├── api/                      # Vercel serverless API (flat routes)
 │   ├── chat.py
 │   ├── health.py
 │   ├── muscles.py
-│   └── kimore/
+│   ├── kimore.py
+│   ├── kimore_demo.py        # rewrite → /api/kimore/demo
+│   └── kimore_feedback.py    # rewrite → /api/kimore/feedback
+├── fitkg_api_common.py       # Shared API helpers
 ├── fitkg_graph_ui/           # Web application (HTML/JS)
 │   ├── index.html
 │   └── body_viewer.js

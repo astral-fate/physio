@@ -1,6 +1,6 @@
 from http.server import BaseHTTPRequestHandler
 
-from api._common import handle_options, send_json
+from fitkg_api_common import handle_options, send_json
 
 
 class handler(BaseHTTPRequestHandler):

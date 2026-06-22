@@ -1,6 +1,6 @@
 from http.server import BaseHTTPRequestHandler
 
-from api._common import ROOT, handle_options, send_json
+from fitkg_api_common import ROOT, handle_options, send_json
 from fitkg_rag import llm_configured, llm_provider, load_dotenv
 
 

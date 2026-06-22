@@ -1,6 +1,6 @@
 from http.server import BaseHTTPRequestHandler
 
-from api._common import get_rag, handle_options, node_payload, read_json_body, send_json
+from fitkg_api_common import get_rag, handle_options, node_payload, read_json_body, send_json
 
 
 class handler(BaseHTTPRequestHandler):

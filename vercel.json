@@ -1,11 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "pip install -r requirements.txt",
-  "functions": {
-    "api/chat.py": { "maxDuration": 60 },
-    "api/kimore/feedback.py": { "maxDuration": 30 },
-    "api/kimore/demo.py": { "maxDuration": 30 }
-  },
   "headers": [
     {
       "source": "/api/(.*)",
@@ -24,6 +18,8 @@
   ],
   "rewrites": [
     { "source": "/", "destination": "/fitkg_graph_ui/index.html" },
-    { "source": "/fitkg_graph_ui", "destination": "/fitkg_graph_ui/index.html" }
+    { "source": "/fitkg_graph_ui", "destination": "/fitkg_graph_ui/index.html" },
+    { "source": "/api/kimore/demo", "destination": "/api/kimore_demo" },
+    { "source": "/api/kimore/feedback", "destination": "/api/kimore_feedback" }
   ]
 }
