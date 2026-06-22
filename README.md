@@ -1,8 +1,14 @@
 # physio — FitKG Explorer
 
-**An interactive physiotherapy & fitness knowledge system** that combines the [FitKG-CN](https://github.com/NYN921/FitKG-CN) fitness knowledge graph with **retrieval-augmented generation (RAG)**, **LLM-grounded chat**, an **anatomical body map**, and **KIMORE clinical exercise demos** — deployable on Vercel for public demos.
+**Live demo:** [physio-x2pm.vercel.app](https://physio-x2pm.vercel.app/)
 
-Repository: [github.com/astral-fate/physio](https://github.com/astral-fate/physio)
+**An interactive physiotherapy & fitness knowledge system** that combines the [FitKG-CN](https://github.com/NYN921/FitKG-CN) fitness knowledge graph with **retrieval-augmented generation (RAG)**, **LLM-grounded chat**, an **anatomical body map**, and **KIMORE clinical exercise demos**.
+
+| | |
+|---|---|
+| **Live app** | https://physio-x2pm.vercel.app/ |
+| **GitHub** | https://github.com/astral-fate/physio |
+| **API health** | https://physio-x2pm.vercel.app/api/health |
 
 ---
 
@@ -57,33 +63,33 @@ The system is **grounded by design**: the LLM receives FitKG subgraph context an
 
 ```mermaid
 flowchart TB
-    subgraph UI["Browser — fitkg_graph_ui/"]
-        Graph[Graph explorer vis.js]
-        Chat[RAG chat panel]
-        Body[SVG body map]
-        Kimore[KIMORE pose player]
+    subgraph UI["Browser — fitkg_graph_ui"]
+        Graph["Graph explorer vis.js"]
+        Chat["RAG chat panel"]
+        Body["SVG body map"]
+        Kimore["KIMORE pose player"]
     end
 
-    subgraph API["API — fitkg_serve.py / api/"]
-        Health[/api/health]
-        ChatAPI[/api/chat]
-        Muscles[/api/muscles]
-        KimoreAPI[/api/kimore/*]
+    subgraph API["API — api/index.py"]
+        Health["GET /api/health"]
+        ChatAPI["POST /api/chat"]
+        Muscles["GET /api/muscles"]
+        KimoreAPI["GET /api/kimore"]
     end
 
     subgraph Core["Python core"]
-        RAG[fitkg_rag.py]
-        BodyMap[fitkg_body_map.py]
-        Bridge[fitkg_kimore_bridge.py]
-        LLM[NVIDIA NIM / OpenAI]
+        RAG["fitkg_rag.py"]
+        BodyMap["fitkg_body_map.py"]
+        Bridge["fitkg_kimore_bridge.py"]
+        LLM["NVIDIA NIM / OpenAI"]
     end
 
-    subgraph Data["outputs/fitkg_kg/"]
-        G[graph.json]
-        S[search_index.json]
-        R[rag_index.json]
-        M[muscle_region_map.json]
-        K[kimore_pose_demos.json]
+    subgraph Data["outputs/fitkg_kg"]
+        G["graph.json"]
+        S["search_index.json"]
+        R["rag_index.json"]
+        M["muscle_region_map.json"]
+        K["kimore_pose_demos.json"]
     end
 
     UI --> API
@@ -338,7 +344,7 @@ Each region maps to **FitKG keywords** (Chinese + English) for automatic highlig
 
 ## API reference
 
-Base URL: `https://your-app.vercel.app` or `http://127.0.0.1:8766`
+Base URL: **https://physio-x2pm.vercel.app** (local: `http://127.0.0.1:8766`)
 
 | Endpoint | Method | Parameters / body | Response |
 |----------|--------|-------------------|----------|
@@ -352,7 +358,7 @@ Base URL: `https://your-app.vercel.app` or `http://127.0.0.1:8766`
 ### Example: chat request
 
 ```bash
-curl -X POST https://your-app.vercel.app/api/chat \
+curl -X POST https://physio-x2pm.vercel.app/api/chat \
   -H "Content-Type: application/json" \
   -d '{"query":"what does squat train?","use_llm":true}'
 ```
@@ -372,14 +378,10 @@ curl -X POST https://your-app.vercel.app/api/chat \
 ### Vercel (recommended for public demos)
 
 1. Import [astral-fate/physio](https://github.com/astral-fate/physio) at [vercel.com/new](https://vercel.com/new)
-2. Add `NVIDIA_API_KEY` in Project → Settings → Environment Variables
-3. Deploy → open **`/fitkg_graph_ui/index.html`**
+2. Add `NVIDIA_API_KEY` in Project → Settings → Environment Variables → **Redeploy**
+3. Open **https://physio-x2pm.vercel.app/** (or your Vercel URL)
 
-`vercel.json` configures:
-- Python serverless functions in `api/`
-- 60s timeout for `/api/chat` (requires Vercel Pro for >10s on Hobby)
-- CORS headers for API routes
-- Root rewrite → graph UI
+`api/index.py` (FastAPI) serves the UI, KG JSON files, and all `/api/*` routes on Vercel.
 
 ```powershell
 .\run_vercel.ps1 --prod   # requires Vercel CLI + Node.js
@@ -410,7 +412,14 @@ Open: http://127.0.0.1:8766/fitkg_graph_ui/index.html
 
 ## Environment variables
 
-Copy `.env.example` → `.env` for local dev. On Vercel, set the same keys in the dashboard.
+Copy `.env.example` → `.env` for local dev. On Vercel, set the same keys in **Project → Settings → Environment Variables** (then **Redeploy**).
+
+| Variable | Required | Notes |
+|----------|----------|-------|
+| `NVIDIA_API_KEY` | For LLM chat | From [build.nvidia.com](https://build.nvidia.com/) |
+| `FITKG_CHAT_MODEL` | Optional | Default `qwen/qwen3-next-80b-a3b-instruct` |
+
+Verify LLM after deploy: `GET /api/health` should show `"llm": true`. If still `false`, check the variable name is exact (not `NIM_API_KEY`) and redeploy.
 
 ```env
 # NVIDIA NIM (recommended)
@@ -518,7 +527,8 @@ The KIMORE bridge in this repo provides the **educational / explainability** lay
 
 | Resource | URL |
 |----------|-----|
+| **Live demo** | https://physio-x2pm.vercel.app/ |
 | GitHub | https://github.com/astral-fate/physio |
+| API health | https://physio-x2pm.vercel.app/api/health |
 | Vercel import | https://vercel.com/new |
 | NVIDIA NIM API keys | https://build.nvidia.com/ |
-| Demo path | `/fitkg_graph_ui/index.html` |

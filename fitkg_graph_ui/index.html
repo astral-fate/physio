@@ -268,7 +268,7 @@
     </div>
   </div>
 
-  <script src="body_viewer.js"></script>
+  <script src="/fitkg_graph_ui/body_viewer.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
     const TYPE_COLORS = {
@@ -276,13 +276,13 @@
       "器械工具": "#f0b429", "运动目标": "#a78bfa", "解剖结构": "#f472b6",
       "营养物质": "#2dd4bf", "专业名词": "#94a3b8",
     };
-    const GRAPH_URL = "../outputs/fitkg_kg/graph.json";
-    const INDEX_URL = "../outputs/fitkg_kg/search_index.json";
+    const GRAPH_URL = "/outputs/fitkg_kg/graph.json";
+    const INDEX_URL = "/outputs/fitkg_kg/search_index.json";
 
     let nodes = [], edges = [], nodeById = {}, adj = {}, searchIndex = {}, network = null;
     let bodyViewer = null;
 
-    const MAP_URL = "../outputs/fitkg_kg/muscle_region_map.json";
+    const MAP_URL = "/outputs/fitkg_kg/muscle_region_map.json";
     const REGION_QUERIES = {
       head: "head neck", neck: "neck cervical", chest: "chest pectoral",
       shoulder_l: "shoulder deltoid", shoulder_r: "shoulder deltoid",
