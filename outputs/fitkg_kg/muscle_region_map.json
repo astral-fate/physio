@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Anatomical regions linked to FitKG-CN entity keywords and exercise presets"
+  },
+  "exercise_presets": {
+    "squat": ["thigh_l", "thigh_r", "glutes", "abs", "lower_back"],
+    "深蹲": ["thigh_l", "thigh_r", "glutes", "abs", "lower_back"],
+    "sit_to_stand": ["thigh_l", "thigh_r", "glutes", "abs"],
+    "sit-to-stand": ["thigh_l", "thigh_r", "glutes", "abs"],
+    "unilateral_stance": ["thigh_l", "thigh_r", "glutes", "abs", "calf_l", "calf_r"],
+    "pelvis_tilt": ["abs", "glutes", "lower_back", "hip_flexor"],
+    "trunk_flexion": ["abs", "lower_back", "hip_flexor"],
+    "swimming": ["shoulder_l", "shoulder_r", "upper_back", "chest", "abs"],
+    "游泳": ["shoulder_l", "shoulder_r", "upper_back", "chest", "abs"]
+  },
+  "regions": [
+    {"id": "head", "label_en": "Head", "label_zh": "头", "view": ["anterior", "posterior"], "fitkg_keywords": ["头部", "头颅", "head"]},
+    {"id": "neck", "label_en": "Neck", "label_zh": "颈", "view": ["anterior", "posterior"], "fitkg_keywords": ["颈", "颈椎", "颈部", "斜方肌上", "胸锁乳突", "neck", "cervical"]},
+    {"id": "chest", "label_en": "Chest (pectoral)", "label_zh": "胸", "view": ["anterior"], "fitkg_keywords": ["胸", "胸大肌", "胸部", "pectoral", "chest", "肋"]},
+    {"id": "shoulder_l", "label_en": "Shoulder (left)", "label_zh": "左肩", "view": ["anterior", "posterior"], "side": "left", "fitkg_keywords": ["左肩", "肩", "三角肌", "deltoid", "shoulder"]},
+    {"id": "shoulder_r", "label_en": "Shoulder (right)", "label_zh": "右肩", "view": ["anterior", "posterior"], "side": "right", "fitkg_keywords": ["右肩", "肩", "三角肌", "deltoid", "shoulder"]},
+    {"id": "biceps_l", "label_en": "Biceps (left)", "label_zh": "左肱二头肌", "view": ["anterior"], "side": "left", "fitkg_keywords": ["肱二头肌", "肱二", "biceps", "bicep"]},
+    {"id": "biceps_r", "label_en": "Biceps (right)", "label_zh": "右肱二头肌", "view": ["anterior"], "side": "right", "fitkg_keywords": ["肱二头肌", "肱二", "biceps", "bicep"]},
+    {"id": "triceps_l", "label_en": "Triceps (left)", "label_zh": "左肱三头肌", "view": ["posterior"], "side": "left", "fitkg_keywords": ["肱三头肌", "肱三", "triceps", "tricep"]},
+    {"id": "triceps_r", "label_en": "Triceps (right)", "label_zh": "右肱三头肌", "view": ["posterior"], "side": "right", "fitkg_keywords": ["肱三头肌", "肱三", "triceps", "tricep"]},
+    {"id": "forearm_l", "label_en": "Forearm (left)", "label_zh": "左前臂", "view": ["anterior", "posterior"], "side": "left", "fitkg_keywords": ["前臂", "腕", "肘", "forearm", "wrist", "elbow", "桡", "尺"]},
+    {"id": "forearm_r", "label_en": "Forearm (right)", "label_zh": "右前臂", "view": ["anterior", "posterior"], "side": "right", "fitkg_keywords": ["前臂", "腕", "肘", "forearm", "wrist", "elbow", "桡", "尺"]},
+    {"id": "abs", "label_en": "Abdominals / core", "label_zh": "腹", "view": ["anterior"], "fitkg_keywords": ["腹", "腹直肌", "核心", "腹部", "abdominal", "abs", "core", "rectus"]},
+    {"id": "obliques", "label_en": "Obliques", "label_zh": "腹斜肌", "view": ["anterior"], "fitkg_keywords": ["腹斜", "腹外斜", "腹内斜", "oblique"]},
+    {"id": "upper_back", "label_en": "Upper back", "label_zh": "上背", "view": ["posterior"], "fitkg_keywords": ["上背", "斜方", "trap", "trapezius", "菱形", "rhomboid"]},
+    {"id": "mid_back", "label_en": "Mid back (lats)", "label_zh": "背阔肌", "view": ["posterior"], "fitkg_keywords": ["背阔", "latissimus", "lat", "中背", "背阔肌"]},
+    {"id": "lower_back", "label_en": "Lower back", "label_zh": "腰", "view": ["posterior"], "fitkg_keywords": ["腰", "竖脊", "erector", "lower back", "lumbar", "脊"]},
+    {"id": "glutes", "label_en": "Glutes / hips", "label_zh": "臀", "view": ["posterior"], "fitkg_keywords": ["臀", "臀大肌", "臀部", "髋", "glute", "gluteus", "hip"]},
+    {"id": "hip_flexor", "label_en": "Hip flexors", "label_zh": "髋屈肌", "view": ["anterior"], "fitkg_keywords": ["髋屈", "髂腰肌", "hip flexor", "psoas"]},
+    {"id": "thigh_l", "label_en": "Thigh / quads (left)", "label_zh": "左大腿", "view": ["anterior", "posterior"], "side": "left", "fitkg_keywords": ["大腿", "股四", "股四头肌", "quad", "quadriceps", "thigh", "腘绳", "hamstring", "膝"]},
+    {"id": "thigh_r", "label_en": "Thigh / quads (right)", "label_zh": "右大腿", "view": ["anterior", "posterior"], "side": "right", "fitkg_keywords": ["大腿", "股四", "股四头肌", "quad", "quadriceps", "thigh", "腘绳", "hamstring", "膝"]},
+    {"id": "calf_l", "label_en": "Calf (left)", "label_zh": "左小腿", "view": ["anterior", "posterior"], "side": "left", "fitkg_keywords": ["小腿", "腓肠", "比目鱼", "calf", "gastrocnemius", "soleus", "踝"]},
+    {"id": "calf_r", "label_en": "Calf (right)", "label_zh": "右小腿", "view": ["anterior", "posterior"], "side": "right", "fitkg_keywords": ["小腿", "腓肠", "比目鱼", "calf", "gastrocnemius", "soleus", "踝"]}
+  ],
+  "legacy_aliases": {
+    "arm_l": ["biceps_l", "triceps_l"],
+    "arm_r": ["biceps_r", "triceps_r"]
+  },
+  "kimore_classes": {
+    "unilateral_stance": {
+      "label_en": "Unilateral stance",
+      "label_zh": "单腿站立",
+      "fitkg_query": "单腿站立 平衡",
+      "regions": ["glutes", "thigh_l", "thigh_r", "calf_l", "calf_r", "abs", "hip_flexor"]
+    },
+    "sit_to_stand": {
+      "label_en": "Sit-to-stand",
+      "label_zh": "坐站转移",
+      "fitkg_query": "坐站 起立",
+      "regions": ["thigh_l", "thigh_r", "glutes", "abs"]
+    },
+    "pelvis_tilt": {
+      "label_en": "Pelvis tilt",
+      "label_zh": "骨盆倾斜",
+      "fitkg_query": "骨盆 倾斜 核心",
+      "regions": ["abs", "glutes", "lower_back", "hip_flexor"]
+    },
+    "squat": {
+      "label_en": "Squat",
+      "label_zh": "深蹲",
+      "fitkg_query": "深蹲",
+      "regions": ["thigh_l", "thigh_r", "glutes", "abs", "lower_back"]
+    },
+    "trunk_flexion": {
+      "label_en": "Trunk flexion",
+      "label_zh": "躯干屈曲",
+      "fitkg_query": "躯干 屈曲",
+      "regions": ["abs", "hip_flexor", "lower_back"]
+    }
+  }
+}

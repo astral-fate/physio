@@ -1,0 +1,35 @@
+{
+  "zh": [
+    "身体部位",
+    "运动项目",
+    "健身动作",
+    "器械工具",
+    "运动目标",
+    "解剖结构",
+    "营养物质",
+    "专业名词"
+  ],
+  "en": {
+    "身体部位": "Body part",
+    "运动项目": "Sport / activity",
+    "健身动作": "Exercise",
+    "器械工具": "Equipment",
+    "运动目标": "Training goal",
+    "解剖结构": "Anatomy",
+    "营养物质": "Nutrient",
+    "专业名词": "Term"
+  },
+  "relations": {
+    "位置": "Location",
+    "形状": "Shape",
+    "起点": "Origin",
+    "止点": "Insertion",
+    "包含": "Contains",
+    "从属": "Part-of",
+    "锻炼": "Trains",
+    "功能": "Function",
+    "使用": "Uses",
+    "实现": "Achieves",
+    "需要": "Requires"
+  }
+}

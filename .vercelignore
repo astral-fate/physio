@@ -1,0 +1,10 @@
+output/
+pgxformer_workspace/
+papers/
+agent-transcripts/
+.env
+.env.local
+**/__pycache__/
+**/*.pyc
+**/.pytest_cache/
+terminals/

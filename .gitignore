@@ -1,0 +1,43 @@
+# Secrets
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Large research outputs (not needed for FitKG Vercel demo)
+output/
+pgxformer_workspace/
+drive-download-*/
+papers/
+
+# Raw FitKG source dataset / archives (built outputs are in outputs/fitkg_kg/)
+NYN921-FitKG-CN-41b1142/
+14355004/
+14355004.zip
+OPE.csv/
+UI-PRMD-Visualize-python-port/
+
+# PG-XFormer training scripts (optional local research)
+pgxformer_*.py
+prepaper.py
+uiprmd_eda.py
+myphysio_26.py
+paper.txt
+*.zip
+
+# Local / temp
+terminals/
+agent-transcripts/
+*.log
