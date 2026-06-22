@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <rect width="800" height="450" fill="#0f1419"/>
+  <text x="400" y="210" fill="#3d8bfd" font-family="system-ui,sans-serif" font-size="22" text-anchor="middle">Knowledge Graph Explorer</text>
+  <text x="400" y="245" fill="#8b9cb3" font-family="system-ui,sans-serif" font-size="14" text-anchor="middle">Replace with assets/kg-graph.png</text>
+</svg>

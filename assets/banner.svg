@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200" viewBox="0 0 800 200">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="800" y2="200">
+      <stop offset="0%" stop-color="#0f1419"/>
+      <stop offset="100%" stop-color="#1a2332"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="200" fill="url(#g)"/>
+  <text x="400" y="95" fill="#3d8bfd" font-family="system-ui,sans-serif" font-size="28" font-weight="600" text-anchor="middle">PG-XFormer &amp; FitKG Explorer</text>
+  <text x="400" y="130" fill="#8b9cb3" font-family="system-ui,sans-serif" font-size="15" text-anchor="middle">Home Physiotherapy Monitoring · Knowledge-Grounded AI</text>
+</svg>

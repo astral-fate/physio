@@ -1,14 +1,76 @@
-# physio — FitKG Explorer
+# PG-XFormer & FitKG Explorer: Home Physiotherapy Monitoring with Knowledge-Grounded AI
 
-**Live demo:** [physio-x2pm.vercel.app](https://physio-x2pm.vercel.app/)
+<p align="center">
+  <img src="assets/banner.svg" alt="PG-XFormer and FitKG Explorer banner" width="100%"/>
+</p>
 
-**An interactive physiotherapy & fitness knowledge system** that combines the [FitKG-CN](https://github.com/NYN921/FitKG-CN) fitness knowledge graph with **retrieval-augmented generation (RAG)**, **LLM-grounded chat**, an **anatomical body map**, and **KIMORE clinical exercise demos**.
+This repository contains the **physio** research stack: **PG-XFormer** (pose-guided cross-modal exercise classification) and **FitKG Explorer** (interactive fitness knowledge graph with RAG + LLM chat, body map, and KIMORE clinical demos).
 
-| | |
-|---|---|
-| **Live app** | https://physio-x2pm.vercel.app/ |
-| **GitHub** | https://github.com/astral-fate/physio |
-| **API health** | https://physio-x2pm.vercel.app/api/health |
+#### By: [Fatimah Mohamed Emad Elden](https://scholar.google.com/citations?user=CfX6eA8AAAAJ&hl=ar)
+
+#### *Cairo University · MIUA Physiotherapy Monitoring*
+
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-000000?style=flat&logo=vercel&logoColor=white)](https://physio-x2pm.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-physio-blue)](https://github.com/astral-fate/physio)
+[![Colab](https://img.shields.io/badge/Colab-Model_Training-F9AB00?style=flat&logo=googlecolab&logoColor=white)](https://colab.research.google.com/drive/1E64eBfdd6kSDk4Rt4GPmH4todzeCrJcg?usp=sharing)
+[![FitKG-CN](https://img.shields.io/badge/FitKG--CN-Knowledge_Graph-3d8bfd)](https://github.com/NYN921/FitKG-CN)
+
+---
+
+## Platform links
+
+| Platform | Description | Link |
+|----------|-------------|------|
+| **Knowledge graph** | FitKG Explorer — graph search, RAG chat, body map, KIMORE demos | [physio-tau-eight.vercel.app](https://physio-tau-eight.vercel.app/) |
+| **Model training** | PG-XFormer Colab pipeline (InfiniteRep → KIMORE → UI-PRMD) | [Google Colab](https://colab.research.google.com/drive/1E64eBfdd6kSDk4Rt4GPmH4todzeCrJcg?usp=sharing) |
+| **B2B landing page** | Clinical / product landing (Faqarati) | [faqarati.run.app](https://faqarati-403347311270.europe-west2.run.app/) |
+
+> **Note:** Latest deploy with graph fixes: [physio-x2pm.vercel.app](https://physio-x2pm.vercel.app/) · API health: [/api/health](https://physio-x2pm.vercel.app/api/health)
+
+---
+
+## Platform interface previews & gallery
+
+Explore the live **FitKG Explorer** workspace and related platform surfaces. *Replace placeholder SVGs in `assets/` with your screenshots (`kg-graph.png`, `rag-chat.png`, etc.) and update the `src` paths below.*
+
+<table width="100%">
+  <tr>
+    <td width="50%" valign="top" align="center">
+      <h4>FitKG Knowledge Graph (8k+ nodes)</h4>
+      <a href="https://physio-tau-eight.vercel.app/"><img src="assets/kg-graph.svg" width="100%" alt="Knowledge graph explorer" style="border-radius: 6px; border: 1px solid #2d3a4d;"/></a>
+      <p align="left"><small>Interactive vis.js subgraph — English search over FitKG-CN entities, relations, and 2-hop neighborhoods.</small></p>
+    </td>
+    <td width="50%" valign="top" align="center">
+      <h4>RAG + LLM Assistant</h4>
+      <a href="https://physio-tau-eight.vercel.app/"><img src="assets/rag-chat.svg" width="100%" alt="RAG chat panel" style="border-radius: 6px; border: 1px solid #2d3a4d;"/></a>
+      <p align="left"><small>Grounded chat over 11k+ passages — optional NVIDIA NIM / OpenAI synthesis with graph + body-map highlights.</small></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top" align="center">
+      <h4>Anatomical Body Map</h4>
+      <a href="https://physio-tau-eight.vercel.app/"><img src="assets/body-map.svg" width="100%" alt="SVG body map" style="border-radius: 6px; border: 1px solid #2d3a4d;"/></a>
+      <p align="left"><small>22-region anterior/posterior SVG — muscles highlight from RAG retrieval and graph node selection.</small></p>
+    </td>
+    <td width="50%" valign="top" align="center">
+      <h4>KIMORE Clinical Pose Demo</h4>
+      <a href="https://physio-tau-eight.vercel.app/"><img src="assets/kimore-pose.svg" width="100%" alt="KIMORE pose player" style="border-radius: 6px; border: 1px solid #2d3a4d;"/></a>
+      <p align="left"><small>COCO-17 synthetic animations for 5 rehab classes with FitKG muscle context and therapist-style cues.</small></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top" align="center">
+      <h4>PG-XFormer Model Training</h4>
+      <a href="https://colab.research.google.com/drive/1E64eBfdd6kSDk4Rt4GPmH4todzeCrJcg?usp=sharing"><img src="assets/model-training.svg" width="100%" alt="Colab training pipeline" style="border-radius: 6px; border: 1px solid #2d3a4d;"/></a>
+      <p align="left"><small>Sim-to-real pipeline: pretrain on InfiniteRep synthetic data, fine-tune on KIMORE, evaluate on UI-PRMD.</small></p>
+    </td>
+    <td width="50%" valign="top" align="center">
+      <h4>B2B Clinical Landing Page</h4>
+      <a href="https://faqarati-403347311270.europe-west2.run.app/"><img src="assets/b2b-landing.svg" width="100%" alt="B2B landing page" style="border-radius: 6px; border: 1px solid #2d3a4d;"/></a>
+      <p align="left"><small>Product-facing clinical landing for physiotherapy / rehab deployment scenarios.</small></p>
+    </td>
+  </tr>
+</table>
 
 ---
 
@@ -527,8 +589,10 @@ The KIMORE bridge in this repo provides the **educational / explainability** lay
 
 | Resource | URL |
 |----------|-----|
-| **Live demo** | https://physio-x2pm.vercel.app/ |
+| **Knowledge graph (live)** | https://physio-tau-eight.vercel.app/ |
+| **Latest Vercel deploy** | https://physio-x2pm.vercel.app/ |
+| **Model training (Colab)** | https://colab.research.google.com/drive/1E64eBfdd6kSDk4Rt4GPmH4todzeCrJcg?usp=sharing |
+| **B2B landing page** | https://faqarati-403347311270.europe-west2.run.app/ |
 | GitHub | https://github.com/astral-fate/physio |
 | API health | https://physio-x2pm.vercel.app/api/health |
-| Vercel import | https://vercel.com/new |
 | NVIDIA NIM API keys | https://build.nvidia.com/ |
